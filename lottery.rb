@@ -25,8 +25,8 @@ puts list
 puts "\n" #break
 
 #winnings
-def show_results(ticket, prize)
-  puts "- - > > Ticket ##{ticket.to_s.rjust(5, '0')} won €#{prize}. < < - -"
+def show_results(ticket, quantity, prize)
+  puts "- - > > Ticket ##{ticket.to_s.rjust(5, '0')} (#{quantity}x) won €#{prize*quantity}. < < - -"
 end
 
 tkt_amount = rand(10) + 1 # (1..10)
@@ -40,46 +40,46 @@ tkt_amount.times do
   puts "Ticket: #{ticket} - #{quantity} times"
 
   #prizes
-  prize1 = 400000 * quantity #1st
-  prize2 = 125000 * quantity #2n
-  prize3 = 50000 * quantity #3rd
-  prize4 = 20000 * quantity #4th
-  prize5 = 2000 * quantity #Consolation1
-  prize6 = 1250 * quantity #Consolation2
-  prize7 = 960 * quantity #Consolation3
-  prize8 = 100 * quantity #Cantena
-  prize9 = 20 * quantity #Reintegro
+  prize1 = 400000 #1st
+  prize2 = 125000 #2n
+  prize3 = 50000  #3rd
+  prize4 = 20000  #4th
+  prize5 = 2000   #Consolation1
+  prize6 = 1250   #Consolation2
+  prize7 = 960    #Consolation3
+  prize8 = 100    #Cantena
+  prize9 = 20     #Reintegro
 
   if ticket == number1
-    show_results(ticket, prize1)
+    show_results(ticket, quantity, prize1)
   end
 
   if ticket == number2
-    show_results(ticket, prize2)
+    show_results(ticket, quantity, prize2)
   end
 
   if ticket == number3
-    show_results(ticket, prize3)
+    show_results(ticket, quantity, prize3)
   end
 
   if ticket == number4 or
     ticket == number5
-    show_results(ticket, prize4)
+    show_results(ticket, quantity, prize4)
   end
 
   if ticket == number6 or
     ticket == number7
-    show_results(ticket, prize5)
+    show_results(ticket, quantity, prize5)
   end
 
   if ticket == number8 or
     ticket == number9
-    show_results(ticket, prize6)
+    show_results(ticket, quantity, prize6)
   end
 
   if ticket == number10 or
     ticket == number11
-    show_results(ticket, prize7)
+    show_results(ticket, quantity, prize7)
   end
 
   if ticket / 100 == number12 or
@@ -87,10 +87,10 @@ tkt_amount.times do
     ticket / 100 == number14 or
     ticket / 100 == number15 or
     ticket / 100 == number16
-    show_results(ticket, prize8)
+    show_results(ticket, quantity, prize8)
   end
 
   if ticket % 10 == number17
-    show_results(ticket, prize9)
+    show_results(ticket, quantity, prize9)
   end
 end
