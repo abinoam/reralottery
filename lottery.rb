@@ -6,16 +6,27 @@ require 'set'
 puts "\n" #break
 
 class Lottery
-  attr_reader :numbers
+  attr_reader :numbers, :prizes
   def initialize
     #lottery draw
     @numbers = Set.new     # all elements are uniq
     @numbers << rand(99999)+1 while @numbers.length < 5
+
+    #prizes
+    @prizes = { 1 => 400_000,    #1st
+                2 => 125_000,    #2n
+                3 =>  50_000,    #3rd
+                4 =>  20_000,    #4th
+                5 =>   2_000,    #Consolation1
+                6 =>   1_250,    #Consolation2
+                7 =>     960,    #Consolation3
+                8 =>     100,    #Cantena
+                9 =>      20 }    #Reintegro
   end
 end
 
-lottery = Lottery.new
-list = lottery.numbers.to_a # This is just to keep the code working temporarily
+$lottery = Lottery.new       # Temporarily using global variables just to keep the code working 
+list = $lottery.numbers.to_a # This is just to keep the code working temporarily
 number1, number2, number3, number4, number5 = list
 serie1, serie2, serie3, serie4, serie5 = Array.new(5) { rand(180)+1 }
 number6 = number1 - 1
@@ -34,20 +45,9 @@ puts list
 
 puts "\n" #break
 
-#prizes
-prize1 = 400000 #1st
-prize2 = 125000 #2n
-prize3 = 50000  #3rd
-prize4 = 20000  #4th
-prize5 = 2000   #Consolation1
-prize6 = 1250   #Consolation2
-prize7 = 960    #Consolation3
-prize8 = 100    #Cantena
-prize9 = 20     #Reintegro
-
 #winnings
 def show_results(ticket, quantity, prize)
-  puts "- - > > Ticket ##{ticket.to_s.rjust(5, '0')} (#{quantity}x) won €#{prize*quantity}. < < - -"
+  puts "- - > > Ticket ##{ticket.to_s.rjust(5, '0')} (#{quantity}x) won €#{$lottery.prizes[prize]*quantity}. < < - -"
 end
 
 tkt_amount = rand(10) + 1 # (1..10)
@@ -61,35 +61,35 @@ tkt_amount.times do
   puts "Ticket: #{ticket} - #{quantity} times"
 
   if ticket == number1
-    show_results(ticket, quantity, prize1)
+    show_results(ticket, quantity, 1)
   end
 
   if ticket == number2
-    show_results(ticket, quantity, prize2)
+    show_results(ticket, quantity, 2)
   end
 
   if ticket == number3
-    show_results(ticket, quantity, prize3)
+    show_results(ticket, quantity, 3)
   end
 
   if ticket == number4 or
     ticket == number5
-    show_results(ticket, quantity, prize4)
+    show_results(ticket, quantity, 4)
   end
 
   if ticket == number6 or
     ticket == number7
-    show_results(ticket, quantity, prize5)
+    show_results(ticket, quantity, 5)
   end
 
   if ticket == number8 or
     ticket == number9
-    show_results(ticket, quantity, prize6)
+    show_results(ticket, quantity, 6)
   end
 
   if ticket == number10 or
     ticket == number11
-    show_results(ticket, quantity, prize7)
+    show_results(ticket, quantity, 7)
   end
 
   if ticket / 100 == number12 or
@@ -97,10 +97,10 @@ tkt_amount.times do
     ticket / 100 == number14 or
     ticket / 100 == number15 or
     ticket / 100 == number16
-    show_results(ticket, quantity, prize8)
+    show_results(ticket, quantity, 8)
   end
 
   if ticket % 10 == number17
-    show_results(ticket, quantity, prize9)
+    show_results(ticket, quantity, 9)
   end
 end
