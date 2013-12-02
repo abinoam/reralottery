@@ -24,18 +24,20 @@ puts list
 
 puts "\n" #break
 
-
 #winnings
 def show_results(a, b)
-  puts "Ticket ##{a.to_s.rjust(5, '0')} won €#{b}."
+  puts "- - > > Ticket ##{a.to_s.rjust(5, '0')} won €#{b}. < < - -"
 end
 
 tkt_amount = rand(10) + 1 # (1..10)
+puts "Iterating through #{tkt_amount} ticket(s)"
+puts "==="
 
 tkt_amount.times do
 
   ticket1 = rand(99999)+1
   quantity1 = rand(10)+1
+  puts "Ticket: #{ticket1} - #{quantity1} times"
 
   #prizes
   prize1 = 400000 * quantity1 #1st
