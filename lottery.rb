@@ -25,8 +25,8 @@ puts list
 puts "\n" #break
 
 #winnings
-def show_results(a, b)
-  puts "- - > > Ticket ##{a.to_s.rjust(5, '0')} won €#{b}. < < - -"
+def show_results(ticket, prize)
+  puts "- - > > Ticket ##{ticket.to_s.rjust(5, '0')} won €#{prize}. < < - -"
 end
 
 tkt_amount = rand(10) + 1 # (1..10)
