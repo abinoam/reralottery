@@ -1,11 +1,21 @@
 #!/usr/bin/env ruby
 #coding: utf-8
 
+require 'set'
+
 puts "\n" #break
 
-#lottery draw
-list = []
-(list << (rand(99999)+1)).uniq! while list.length < 5
+class Lottery
+  attr_reader :numbers
+  def initialize
+    #lottery draw
+    @numbers = Set.new     # all elements are uniq
+    @numbers << rand(99999)+1 while @numbers.length < 5
+  end
+end
+
+lottery = Lottery.new
+list = lottery.numbers.to_a # This is just to keep the code working temporarily
 number1, number2, number3, number4, number5 = list
 serie1, serie2, serie3, serie4, serie5 = Array.new(5) { rand(180)+1 }
 number6 = number1 - 1
