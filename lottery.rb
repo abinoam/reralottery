@@ -28,6 +28,19 @@ puts list
 
 puts "\n" #break
 
+
+#winnings
+def show_results(a, b)
+  puts "Ticket ##{a.to_s.rjust(5, '0')} won €#{b}."
+end
+
+tkt_amount = rand(10) + 1 # (1..10)
+
+tkt_amount.times do
+
+  ticket1 = rand(99999)+1
+  quantity1 = rand(10)+1
+
 #prizes
 prize1 = 400000 * quantity1 #1st
 prize2 = 125000 * quantity1 #2n
@@ -38,11 +51,6 @@ prize6 = 1250 * quantity1 #Consolation2
 prize7 = 960 * quantity1 #Consolation3
 prize8 = 100 * quantity1 #Cantena
 prize9 = 20 * quantity1 #Reintegro
-
-#winnings
-def show_results(a, b)
-  puts "Ticket ##{a.to_s.rjust(5, '0')} won €#{b}."
-end
 
 if ticket1 == number1.to_i
   show_results(ticket1, prize1)
@@ -86,4 +94,5 @@ end
 
 if ticket1.to_i % 10 == number17.to_i
   show_results(ticket1, prize9)
+end
 end
