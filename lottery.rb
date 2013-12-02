@@ -1,10 +1,6 @@
 #!/usr/bin/env ruby
 #coding: utf-8
 
-#ticket database
-ticket1 = 23453 #ticket number
-quantity1 = 3  #quantity bought
-
 puts "\n" #break
 
 #lottery draw
