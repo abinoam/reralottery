@@ -24,6 +24,17 @@ puts list
 
 puts "\n" #break
 
+#prizes
+prize1 = 400000 #1st
+prize2 = 125000 #2n
+prize3 = 50000  #3rd
+prize4 = 20000  #4th
+prize5 = 2000   #Consolation1
+prize6 = 1250   #Consolation2
+prize7 = 960    #Consolation3
+prize8 = 100    #Cantena
+prize9 = 20     #Reintegro
+
 #winnings
 def show_results(ticket, quantity, prize)
   puts "- - > > Ticket ##{ticket.to_s.rjust(5, '0')} (#{quantity}x) won €#{prize*quantity}. < < - -"
@@ -38,17 +49,6 @@ tkt_amount.times do
   ticket = rand(99999)+1
   quantity = rand(10)+1
   puts "Ticket: #{ticket} - #{quantity} times"
-
-  #prizes
-  prize1 = 400000 #1st
-  prize2 = 125000 #2n
-  prize3 = 50000  #3rd
-  prize4 = 20000  #4th
-  prize5 = 2000   #Consolation1
-  prize6 = 1250   #Consolation2
-  prize7 = 960    #Consolation3
-  prize8 = 100    #Cantena
-  prize9 = 20     #Reintegro
 
   if ticket == number1
     show_results(ticket, quantity, prize1)
